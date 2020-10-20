@@ -1,10 +1,10 @@
-package fr.upec.sm.dao;
+package fr.upec.sm.service;
 
 import java.util.List;
 
 import fr.upec.sm.model.Assistant;
 
-public interface AssistantDao {
+public interface AssistantService {
 
 	Assistant save(Assistant assistant);
 

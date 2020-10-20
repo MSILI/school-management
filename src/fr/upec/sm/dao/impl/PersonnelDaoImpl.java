@@ -40,7 +40,7 @@ public class PersonnelDaoImpl implements PersonnelDao {
 			valeursAutoGenerees.close();
 			preparedStatement.close();
 		} catch (SQLException e) {
-			throw new RuntimeException(e.getMessage());
+			throw new RuntimeException("Erreur au niveau de la base de données");
 		}
 
 		return personnel;
@@ -60,7 +60,7 @@ public class PersonnelDaoImpl implements PersonnelDao {
 			resultSet.close();
 			preparedStatement.close();
 		} catch (SQLException e) {
-			throw new RuntimeException(e.getMessage());
+			throw new RuntimeException("Erreur au niveau de la base de données");
 		}
 		return personnel;
 	}
