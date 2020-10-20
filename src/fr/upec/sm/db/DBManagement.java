@@ -84,6 +84,7 @@ public class DBManagement {
 		try {
 			PreparedStatement preparedStatement = databaseConnection.prepareStatement(SQL_SAVE_MODULE,
 					Statement.RETURN_GENERATED_KEYS);
+			module.setResponsable(chercherProfesseurParId(module.getResponsable().getId()));
 			preparedStatement.setString(1, module.getTitre());
 			preparedStatement.setInt(2, module.getNbHeuresCours());
 			preparedStatement.setInt(3, module.getNbHeuresTd());

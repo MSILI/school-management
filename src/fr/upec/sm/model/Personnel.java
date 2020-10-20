@@ -3,6 +3,12 @@ package fr.upec.sm.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import fr.upec.sm.utils.LocalDateDeserializer;
+import fr.upec.sm.utils.LocalDateSerializer;
+
 public class Personnel implements Serializable {
 
 	/**
@@ -13,6 +19,9 @@ public class Personnel implements Serializable {
 	private long id;
 	private String nom;
 	private String prenom;
+	
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
 	private LocalDate dateNaissance;
 
 	public Personnel() {
