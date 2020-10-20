@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  lun. 19 oct. 2020 à 21:11
+-- Généré le :  mar. 20 oct. 2020 à 23:19
 -- Version du serveur :  10.1.40-MariaDB
 -- Version de PHP :  7.3.5
 
@@ -69,7 +69,7 @@ CREATE TABLE `personnels` (
 
 CREATE TABLE `professeurs` (
   `id` int(11) NOT NULL,
-  `diplome` int(11) NOT NULL
+  `diplome` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -112,7 +112,7 @@ ALTER TABLE `professeurs`
 -- AUTO_INCREMENT pour la table `personnels`
 --
 ALTER TABLE `personnels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Contraintes pour les tables déchargées
