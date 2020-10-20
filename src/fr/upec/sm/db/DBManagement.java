@@ -1,11 +1,11 @@
 package fr.upec.sm.db;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,7 +106,7 @@ public class DBManagement {
 			while (resultSet.next()) {
 				Personnel responsable = this.chercherPersonnelParId(resultSet.getLong("responsable_id"));
 				assistants.add(new Assistant(resultSet.getLong("id"), resultSet.getString("nom"),
-						resultSet.getString("prenom"), resultSet.getObject("date_naissance", LocalDate.class),
+						resultSet.getString("prenom"), resultSet.getDate("date_naissance").toLocalDate(),
 						resultSet.getString("diplome"), responsable));
 			}
 			resultSet.close();
@@ -124,7 +124,7 @@ public class DBManagement {
 			ResultSet resultSet = statement.executeQuery(SQL_FIND_PROFESSEURS);
 			while (resultSet.next()) {
 				professeurs.add(new Professeur(resultSet.getLong("id"), resultSet.getString("nom"),
-						resultSet.getString("prenom"), resultSet.getObject("date_naissance", LocalDate.class),
+						resultSet.getString("prenom"), resultSet.getDate("date_naissance").toLocalDate(),
 						resultSet.getString("diplome")));
 			}
 			resultSet.close();
@@ -160,7 +160,7 @@ public class DBManagement {
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, personnel.getNom());
 			preparedStatement.setString(2, personnel.getPrenom());
-			preparedStatement.setObject(3, personnel.getDateNaissance());
+			preparedStatement.setObject(3, Date.valueOf(personnel.getDateNaissance()));
 			preparedStatement.executeUpdate();
 
 			valeursAutoGenerees = preparedStatement.getGeneratedKeys();
@@ -184,7 +184,7 @@ public class DBManagement {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				personnel = new Personnel(resultSet.getLong("id"), resultSet.getString("nom"),
-						resultSet.getString("prenom"), resultSet.getObject("date_naissance", LocalDate.class));
+						resultSet.getString("prenom"), resultSet.getDate("date_naissance").toLocalDate());
 			}
 			resultSet.close();
 			preparedStatement.close();
@@ -202,7 +202,7 @@ public class DBManagement {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				professeur = new Professeur(resultSet.getLong("id"), resultSet.getString("nom"),
-						resultSet.getString("prenom"), resultSet.getObject("date_naissance", LocalDate.class),
+						resultSet.getString("prenom"), resultSet.getDate("date_naissance").toLocalDate(),
 						resultSet.getString("diplome"));
 			}
 			resultSet.close();
@@ -212,5 +212,4 @@ public class DBManagement {
 		}
 		return professeur;
 	}
-
 }

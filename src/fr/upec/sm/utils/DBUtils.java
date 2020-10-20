@@ -20,22 +20,11 @@ public class DBUtils {
 			Class.forName(DB_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e.getMessage());
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e.getMessage());
 		}
 		return conn;
-	}
-
-	// fermeture de la connexion
-	public static void closeConnection(Connection toBeClosed) {
-		if (toBeClosed == null)
-			return;
-		try {
-			toBeClosed.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 }

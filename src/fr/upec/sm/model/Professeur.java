@@ -23,6 +23,11 @@ public class Professeur extends Personnel {
 		this.diplome = diplome;
 	}
 
+	public Professeur(String nom, String prenom, LocalDate dateNaissance, String diplome) {
+		super(nom, prenom, dateNaissance);
+		this.diplome = diplome;
+	}
+
 	public String getDiplome() {
 		return diplome;
 	}
@@ -38,7 +43,7 @@ public class Professeur extends Personnel {
 	public void setModules(List<Module> modules) {
 		this.modules = modules;
 	}
-	
+
 	public void addModule(Module module) {
 		this.modules.add(module);
 	}
@@ -77,7 +82,7 @@ public class Professeur extends Personnel {
 	@Override
 	public String toString() {
 		return "Professeur [id=" + this.getId() + ", nom=" + this.getNom() + ", prenom=" + this.getPrenom()
-				+ ", diplome=" + diplome + ", modules=" + modules + "]";
+				+ ", dateNaissance=" + this.getDateNaissance() + ", diplome=" + diplome + "]";
 	}
 
 }

@@ -22,6 +22,13 @@ public class Assistant extends Personnel {
 		this.diplome = diplome;
 		this.responsable = responsable;
 	}
+	
+	public Assistant(String nom, String prenom, LocalDate dateNaissance, String diplome,
+			Personnel responsable) {
+		super(nom, prenom, dateNaissance);
+		this.diplome = diplome;
+		this.responsable = responsable;
+	}
 
 	public String getDiplome() {
 		return diplome;
@@ -73,7 +80,7 @@ public class Assistant extends Personnel {
 	@Override
 	public String toString() {
 		return "Assistant [id=" + this.getId() + ", nom=" + this.getNom() + ", prenom=" + this.getPrenom()
-				+ ", diplome=" + diplome + ", responsable=" + responsable + "]";
+				+ ", dateNaissance=" + this.getDateNaissance() + ", diplome=" + diplome + ", responsable=" + responsable + "]";
 	}
 
 }

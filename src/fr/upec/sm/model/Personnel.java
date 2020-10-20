@@ -25,6 +25,12 @@ public class Personnel implements Serializable {
 		this.dateNaissance = dateNaissance;
 	}
 
+	public Personnel(String nom, String prenom, LocalDate dateNaissance) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+	}
+
 	public long getId() {
 		return id;
 	}
