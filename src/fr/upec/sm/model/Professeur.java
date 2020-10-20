@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Professeur extends Personnel {
 
 	/**
@@ -12,6 +14,8 @@ public class Professeur extends Personnel {
 	private static final long serialVersionUID = 1L;
 
 	private String diplome;
+	
+	@JsonIgnore
 	private List<Module> modules = new ArrayList<Module>();
 
 	public Professeur() {
